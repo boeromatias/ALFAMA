@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 
+
 namespace WindowsFormsApplication1
 {
     public partial class Login : Form
@@ -41,26 +42,32 @@ namespace WindowsFormsApplication1
                 //EN LA BD Y REEMPLAZAR POR USER_NAME, LO MISMO PARA USER_PASS
                 //VER SI LA TABLA DE ALEX ME SIRVE O CREAR UNA LLAMADA LOGIN
 
-                SqlCommand cmd = new SqlCommand("select user_name,user_pass fronm login where user_name ='" + txt_user.Text + "' AND user_pass = '" + txt_pass.Text + "' ", cn);
+                SqlCommand cmd = new SqlCommand("select USERNAME,PASSWORD from ALFAMA.USUARIO where USERNAME ='" + txt_user.Text + "' AND PASSWORD = '" + txt_pass.Text + "' ", cn);
                 cn.Open();
                 cmd.ExecuteNonQuery();
 
                 DataSet ds = new DataSet();
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
-                da.Fill(ds, "Login"); //Login es el nombre de la tabla en sql
+                da.Fill(ds, "ALFAMA.USUARIO"); //Login es el nombre de la tabla en sql
 
                 DataRow dro;
-                dro = ds.Tables["Login"].Rows[0];// login es el nombre de la tabla en sql
+                dro = ds.Tables["ALFAMA.USUARIO"].Rows[0];// login es el nombre de la tabla en sql
 
-                if ((txt_user.Text == dro["user_name"].ToString()) && (txt_pass.Text == dro["user_pass"].ToString()))
+                if ((txt_user.Text == dro["USERNAME"].ToString()) || (txt_pass.Text == dro["PASSWORD"].ToString()))
                 {
                     Panel_de_Control p = new Panel_de_Control();/*llamamos a nuestro formulario principal creo que en este caso es el de las funciones*/
                     p.Show();
                     this.Hide();
 
                 }
+                
+                
             }
-            catch { }
+            catch(Exception error) 
+            {
+                MessageBox.Show(error.Message, "Algo hiciste mal pa");
+
+            }
             finally
             {
                 cn.Close();
@@ -72,6 +79,7 @@ namespace WindowsFormsApplication1
         private void bt_cancelar_Click(object sender, EventArgs e)
         {
             this.Dispose();
+            this.Hide();
         }
 
         private void label2_Click(object sender, EventArgs e)

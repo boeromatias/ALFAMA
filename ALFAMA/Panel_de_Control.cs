@@ -48,7 +48,14 @@ namespace WindowsFormsApplication1
 
         private void bt_abmRol_Click(object sender, EventArgs e)
         {
-            this.Dispose();
+            
+        }
+
+        private void bt_logout_Click(object sender, EventArgs e)
+        {
+            Login p = new Login();/*Al desloguearse volvemos a login*/
+            p.Show();
+            this.Hide();
         }
     }
 }

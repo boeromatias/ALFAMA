@@ -40,7 +40,7 @@
             this.bt_registrarLlegadaMicro = new System.Windows.Forms.Button();
             this.bt_canjearPuntos = new System.Windows.Forms.Button();
             this.bt_listadoEstadistico = new System.Windows.Forms.Button();
-            this.bt_salir = new System.Windows.Forms.Button();
+            this.bt_logout = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label4
@@ -157,21 +157,22 @@
             this.bt_listadoEstadistico.Text = "Listado Estadistico";
             this.bt_listadoEstadistico.UseVisualStyleBackColor = true;
             // 
-            // bt_salir
+            // bt_logout
             // 
-            this.bt_salir.Location = new System.Drawing.Point(375, 371);
-            this.bt_salir.Name = "bt_salir";
-            this.bt_salir.Size = new System.Drawing.Size(75, 23);
-            this.bt_salir.TabIndex = 31;
-            this.bt_salir.Text = "&Salir";
-            this.bt_salir.UseVisualStyleBackColor = true;
+            this.bt_logout.Location = new System.Drawing.Point(375, 371);
+            this.bt_logout.Name = "bt_logout";
+            this.bt_logout.Size = new System.Drawing.Size(75, 23);
+            this.bt_logout.TabIndex = 31;
+            this.bt_logout.Text = "&Logout";
+            this.bt_logout.UseVisualStyleBackColor = true;
+            this.bt_logout.Click += new System.EventHandler(this.bt_logout_Click);
             // 
             // Panel_de_Control
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(468, 406);
-            this.Controls.Add(this.bt_salir);
+            this.Controls.Add(this.bt_logout);
             this.Controls.Add(this.bt_listadoEstadistico);
             this.Controls.Add(this.bt_generarViaje);
             this.Controls.Add(this.bt_registrarLlegadaMicro);
@@ -205,6 +206,6 @@
         private System.Windows.Forms.Button bt_registrarLlegadaMicro;
         private System.Windows.Forms.Button bt_canjearPuntos;
         private System.Windows.Forms.Button bt_listadoEstadistico;
-        private System.Windows.Forms.Button bt_salir;
+        private System.Windows.Forms.Button bt_logout;
     }
 }
